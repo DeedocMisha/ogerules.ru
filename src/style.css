@@ -1,0 +1,133 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.circle:hover {
+  background-color: #8e54c4 !important;
+}
+iframe{
+   border-width: 2px;
+   border-color: blue !important;
+          
+}
+.imgg {
+  border-width: 2px;
+  border-color: rgb(82, 82, 255) !important;
+}
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.tex{
+  padding-right:29px;
+}
+.cats {
+  display: grid;
+  
+  grid-template-rows:  90px 90px 90px 90px;
+}
+.catss{
+  display: grid;
+  
+  grid-template-columns:  10%  80% 10%;
+}
+.button {
+    /* Основные стили для кнопки */
+     
+    background-color: rgb(119, 0, 255);
+    border-radius: 50px;
+    height: 75px;
+   
+    color: white;
+    
+    border: none;
+    
+    border-radius: 50px;
+    width: 350px;
+  }
+  
+.button:hover { 
+    /* Стиль при наведении курсора */
+    border: 1px solid white !important; }
+    
+  /* Адаптивная верстка для телефона */
+  @media (max-width: 768px) {
+    .hello{
+      max-height:100px;
+    }
+    .hel{
+      max-height:250px;
+    }
+    .e-button{
+      font-size:12px;
+        margin: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: blueviolet;
+        border: 1px solid white;
+      
+    }
+    .margi{
+      margin: 5%;
+    }
+    .button {
+      width: 250px; /* Кнопка занимает 90% ширины экрана */
+      
+    }
+    .fontt{ 
+      width: 93wh;
+      text-align:center;
+      font-size:30px;
+    }
+    .cats{
+      grid-template-rows:  90px 90px 90px 90px;
+      grid-template-columns:  250px;
+    }
+.Back{
+  width: 100wh;
+  padding:1wh;
+  height: 130vh;
+  background-image: url('/ref.jpg');
+  background-size: cover; /* Растянуть фон, чтобы покрыть всю область */
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+  }
+  
+  /* Адаптивная верстка для ПК */
+  @media (min-width: 768px) {
+    
+    .e-button{
+      margin: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: blueviolet;
+      border: 1px solid white;
+    }
+    .margi{
+      margin: 14%;
+    }
+    .Back{
+      width: 100wh;
+
+  height: 140vh;
+  min-height:800px !important;
+  background-image: url('/ref.jpg');
+  background-size: cover; /* Растянуть фон, чтобы покрыть всю область */
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+.fontt{
+
+  font-size:50px;
+}
+    .button {
+      width: 350px; /* Ширина кнопки для ПК */
+      
+    }
+    .cats{
+      grid-template-columns:  350px;
+    }
+  }
