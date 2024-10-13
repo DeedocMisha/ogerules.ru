@@ -1,3 +1,69 @@
+<script>
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      const adContainer1 = document.getElementById("yandex_rtb_R-A-11699635-7");
+      if (adContainer1) {
+        if (!window.yaContextCb) {
+          window.yaContextCb = [];
+        }
+        window.yaContextCb.push(() => {
+          Ya.Context.AdvManager.render({
+            renderTo: "yandex_rtb_R-A-11699635-7",
+            blockId: "R-A-11699635-7",
+          });
+        });
+      } else {
+        console.error("Рекламный контейнер 1 не найден в DOM");
+      }
+
+      const adContainer2 = document.getElementById("yandex_rtb_R-A-11699635-2");
+      if (adContainer2) {
+        window.yaContextCb.push(() => {
+          Ya.Context.AdvManager.render({
+            renderTo: "yandex_rtb_R-A-11699635-2",
+            blockId: "R-A-11699635-2",
+          });
+        });
+      } else {
+        console.error("Рекламный контейнер 2 не найден в DOM");
+      }
+
+      const adContainer3 = document.getElementById("yandex_rtb_R-A-11699635-3");
+      if (adContainer3) {
+        window.yaContextCb.push(() => {
+          Ya.Context.AdvManager.render({
+            renderTo: "yandex_rtb_R-A-11699635-3",
+            blockId: "R-A-11699635-3",
+          });
+        });
+      } else {
+        console.error("Рекламный контейнер 3 не найден в DOM");
+      }
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://an.yandex.ru/system/context.js";
+      script.async = true;
+      document.head.appendChild(script);
+    });
+  },
+};
+</script>
+<script setup>
+import { onMounted } from "vue";
+
+function handleKeydown(event) {
+  if (event.key === "Escape") {
+    window.location.href = "#/";
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("keydown", handleKeydown);
+});
+</script>
+
 <template>
   <header
     class="sticky top-0 p-5"
@@ -349,68 +415,3 @@
   </body>
 </template>
 
-<script>
-export default {
-  mounted() {
-    this.$nextTick(() => {
-      const adContainer1 = document.getElementById("yandex_rtb_R-A-11699635-7");
-      if (adContainer1) {
-        if (!window.yaContextCb) {
-          window.yaContextCb = [];
-        }
-        window.yaContextCb.push(() => {
-          Ya.Context.AdvManager.render({
-            renderTo: "yandex_rtb_R-A-11699635-7",
-            blockId: "R-A-11699635-7",
-          });
-        });
-      } else {
-        console.error("Рекламный контейнер 1 не найден в DOM");
-      }
-
-      const adContainer2 = document.getElementById("yandex_rtb_R-A-11699635-2");
-      if (adContainer2) {
-        window.yaContextCb.push(() => {
-          Ya.Context.AdvManager.render({
-            renderTo: "yandex_rtb_R-A-11699635-2",
-            blockId: "R-A-11699635-2",
-          });
-        });
-      } else {
-        console.error("Рекламный контейнер 2 не найден в DOM");
-      }
-
-      const adContainer3 = document.getElementById("yandex_rtb_R-A-11699635-3");
-      if (adContainer3) {
-        window.yaContextCb.push(() => {
-          Ya.Context.AdvManager.render({
-            renderTo: "yandex_rtb_R-A-11699635-3",
-            blockId: "R-A-11699635-3",
-          });
-        });
-      } else {
-        console.error("Рекламный контейнер 3 не найден в DOM");
-      }
-
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://an.yandex.ru/system/context.js";
-      script.async = true;
-      document.head.appendChild(script);
-    });
-  },
-};
-</script>
-<script setup>
-import { onMounted } from "vue";
-
-function handleKeydown(event) {
-  if (event.key === "Escape") {
-    window.location.href = "#/";
-  }
-}
-
-onMounted(() => {
-  document.addEventListener("keydown", handleKeydown);
-});
-</script>

@@ -1,4 +1,5 @@
 <script>
+
 export default {
   data() {
     return {
@@ -31,6 +32,10 @@ export default {
     "
   >
     <main>
+
+      <div style="display: flex; position: fixed; bottom: 10px; left: 10px;">
+        <div id="adblock-message" style="width: 200px !important;padding: 5px;border-radius: 10px;background-color: #960015;font-size: 15px">Пожалуйста, отключите блокировщик рекламы для нашего сайта, чтобы поддержать нас.</div>
+      </div>
       <div class="flex">
         <button
           @click="Show = !Show"

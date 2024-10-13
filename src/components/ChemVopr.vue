@@ -91,8 +91,50 @@
 
 <script>
 export default {
+  mounted() {
+    // Инициализируем массив showAnswer, скрывая ответы по умолчанию
+    this.showAnswer = Array(this.tasks.length).fill(false);
+    // Инициализируем вложенные массивы для каждого задания
+    this.showAnswer = this.showAnswer.map(() => Array(5).fill(false));
+    this.$nextTick(() => {
+      const adContainer1 = document.getElementById("yandex_rtb_R-A-11699635-7");
+      if (adContainer1) {
+        if (!window.yaContextCb) {
+          window.yaContextCb = [];
+        }
+        window.yaContextCb.push(() => {
+          //3
+          Ya.Context.AdvManager.render({
+            renderTo: "yandex_rtb_R-A-11699635-7",
+            blockId: "R-A-11699635-7",
+          });
+        });
+      } else {
+        console.error("Рекламный контейнер 1 не найден в DOM");
+      }
+
+      const adContainer2 = document.getElementById("yandex_rtb_R-A-11699635-2");
+      if (adContainer2) {
+        window.yaContextCb.push(() => {
+          Ya.Context.AdvManager.render({
+            renderTo: "yandex_rtb_R-A-11699635-2",
+            blockId: "R-A-11699635-2",
+          });
+        });
+      } else {
+        console.error("Рекламный контейнер 2 не найден в DOM");
+      }
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://an.yandex.ru/system/context.js";
+      script.async = true;
+      document.head.appendChild(script);
+    });
+  },
   data() {
     return {
+
       tasks: [
         {
           subTasks: [
@@ -1953,47 +1995,7 @@ export default {
       showAnswer: [], // Массив для отслеживания видимости ответов
     };
   },
-  mounted() {
-    // Инициализируем массив showAnswer, скрывая ответы по умолчанию
-    this.showAnswer = Array(this.tasks.length).fill(false);
-    // Инициализируем вложенные массивы для каждого задания
-    this.showAnswer = this.showAnswer.map(() => Array(5).fill(false));
-    this.$nextTick(() => {
-      const adContainer1 = document.getElementById("yandex_rtb_R-A-11699635-7");
-      if (adContainer1) {
-        if (!window.yaContextCb) {
-          window.yaContextCb = [];
-        }
-        window.yaContextCb.push(() => {
-          //3
-          Ya.Context.AdvManager.render({
-            renderTo: "yandex_rtb_R-A-11699635-7",
-            blockId: "R-A-11699635-7",
-          });
-        });
-      } else {
-        console.error("Рекламный контейнер 1 не найден в DOM");
-      }
 
-      const adContainer2 = document.getElementById("yandex_rtb_R-A-11699635-2");
-      if (adContainer2) {
-        window.yaContextCb.push(() => {
-          Ya.Context.AdvManager.render({
-            renderTo: "yandex_rtb_R-A-11699635-2",
-            blockId: "R-A-11699635-2",
-          });
-        });
-      } else {
-        console.error("Рекламный контейнер 2 не найден в DOM");
-      }
-
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://an.yandex.ru/system/context.js";
-      script.async = true;
-      document.head.appendChild(script);
-    });
-  },
   methods: {
     showTask(taskIndex) {
       this.currentTask = taskIndex;
@@ -2020,7 +2022,7 @@ onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
 });
 </script>
-<style>
+<style scoped>
 p {
   color: black;
 }
@@ -2095,4 +2097,8 @@ button:hover {
   /* Стиль при наведении курсора */
   border: 1px solid white !important;
 }
+*{
+  margin: 1px;
+}
+
 </style>
